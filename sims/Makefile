@@ -9,8 +9,8 @@ LIBDIRS=$(addprefix -L,$(_LIBDIRS))
 _LIBS=m nb
 LIBS=$(addprefix -l,$(_LIBS))
 
-CFLAGS=-O3 -fopenmp -Wall $(INCDIRS)
-LDFLAGS=-O3 -fopenmp $(INCDIRS) $(LIBDIRS) $(LIBS) -Wl,-rpath,$(shell dirname $(realpath $(lastword $(MAKEFILE_LIST))))/../lib
+CFLAGS=-O3 -Wall $(INCDIRS)
+LDFLAGS=-O3 $(INCDIRS) $(LIBDIRS) $(LIBS) -Wl,-rpath,$(shell dirname $(realpath $(lastword $(MAKEFILE_LIST))))/../lib
 
 _SRCFILES=sim.c
 SRCS=$(_SRCFILES)
@@ -20,7 +20,7 @@ OBJS=$(_OBJFILES)
 
 EXES=sim.exe
 
-LIBNAME=libnb.so
+LIBNAME=libcnb.so
 
 DIRGUARD=@mkdir -p $(@D)
 

@@ -9,11 +9,11 @@ LIBDIRS=$(addprefix -L,$(_LIBDIRS))
 _LIBS=m
 LIBS=$(addprefix -l,$(_LIBS))
 
-CFLAGS=-O3 -fopenmp -Wall $(INCDIRS)
-LDFLAGS=-O3 -shared -fopenmp $(INCDIRS) $(LIBDIRS) $(LIBS)
+CFLAGS=-O3 -Wall $(INCDIRS)
+LDFLAGS=-O3 -shared $(INCDIRS) $(LIBDIRS) $(LIBS)
 
 SRCDIR=src
-_SRCFILES=body.c gravity.c config.c
+_SRCFILES=body.c gravity.c
 SRCS=$(addprefix $(SRCDIR)/,$(_SRCFILES))
 
 OBJDIR=build
@@ -21,7 +21,7 @@ _OBJFILES=$(_SRCFILES:%.c=%.o)
 OBJS=$(addprefix $(OBJDIR)/,$(_OBJFILES))
 
 LIBDIR=lib
-LIBNAME=libnb.so
+LIBNAME=libcnb.so
 
 DIRGUARD=@mkdir -p $(@D)
 

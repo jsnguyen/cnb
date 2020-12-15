@@ -15,20 +15,7 @@ make
 
 To run the example simulation:
 ```
-./sims/sim.exe sim.config
-```
-The ```sim.config``` parameters are:
-```
-fn -> filename
-n_thread -> number of threads for parallelization
-niter -> number of iterations
-nb -> number of bodies
-td -> timestep in sec
-mass_low -> lower bound on masses of bodies
-mass_up -> upper bound on masses of bodies
-vel_low -> lower bound on each component of velocity
-vel_up -> upper bound on each component of velocity
-cubelen -> simulation cube size in AU
+./sims/sim.exe
 ```
 The default config parameters should produce a nice animation.
 

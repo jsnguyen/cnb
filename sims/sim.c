@@ -2,7 +2,6 @@
 #include "stdlib.h"
 #include "assert.h"
 #include "time.h"
-#include "omp.h"
 #include "cnbody/body.h"
 #include "cnbody/gravity.h"
 #define SOL_MASS 1.989e30
@@ -53,7 +52,6 @@ int main(int argc, char* argv[]){
     rand(); rand(); rand();
 
     const char*  fn       = "out.txt"; 
-    const int    n_thread = 4;
     const int    niter    = 10000;
     const int    nb       = 100;
     const double td       = 1e6;
@@ -96,7 +94,6 @@ int main(int argc, char* argv[]){
             body_write(bs[j],fn);
         }
 
-        #pragma omp parallel for num_threads(n_thread) shared(nprop,bs)
         for(int j=0;j<nb;j++){
             nprop[j] = apply_velverl(&bs[j], bs, nb, td);
             body_set_pos(&bs[j],nprop[j].pos);
